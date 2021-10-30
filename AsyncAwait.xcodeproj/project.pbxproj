@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		538E0158272D309500320819 /* AsyncAwait.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538E014F272D309400320819 /* AsyncAwait.framework */; };
 		538E015D272D309500320819 /* AsyncAwaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E015C272D309500320819 /* AsyncAwaitTests.swift */; };
-		538E015E272D309500320819 /* AsyncAwait.h in Headers */ = {isa = PBXBuildFile; fileRef = 538E0152272D309400320819 /* AsyncAwait.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		538E0168272D311800320819 /* UsersNamesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E0167272D311800320819 /* UsersNamesLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,9 +24,9 @@
 
 /* Begin PBXFileReference section */
 		538E014F272D309400320819 /* AsyncAwait.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AsyncAwait.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		538E0152272D309400320819 /* AsyncAwait.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsyncAwait.h; sourceTree = "<group>"; };
 		538E0157272D309500320819 /* AsyncAwaitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsyncAwaitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		538E015C272D309500320819 /* AsyncAwaitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitTests.swift; sourceTree = "<group>"; };
+		538E0167272D311800320819 /* UsersNamesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersNamesLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 		538E0151272D309400320819 /* AsyncAwait */ = {
 			isa = PBXGroup;
 			children = (
-				538E0152272D309400320819 /* AsyncAwait.h */,
+				538E0167272D311800320819 /* UsersNamesLoader.swift */,
 			);
 			path = AsyncAwait;
 			sourceTree = "<group>";
@@ -89,7 +89,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				538E015E272D309500320819 /* AsyncAwait.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +143,7 @@
 				TargetAttributes = {
 					538E014E272D309400320819 = {
 						CreatedOnToolsVersion = 13.2;
+						LastSwiftMigration = 1320;
 					};
 					538E0156272D309500320819 = {
 						CreatedOnToolsVersion = 13.2;
@@ -191,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538E0168272D311800320819 /* UsersNamesLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +339,7 @@
 		538E0162272D309500320819 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -358,6 +360,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +369,7 @@
 		538E0163272D309500320819 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -394,10 +398,12 @@
 		538E0165272D309500320819 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 54PNV7AZ7G;
 				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.markoengelman.AsyncAwaitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,10 +416,12 @@
 		538E0166272D309500320819 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 54PNV7AZ7G;
 				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.markoengelman.AsyncAwaitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
