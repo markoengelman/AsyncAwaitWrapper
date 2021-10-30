@@ -10,16 +10,24 @@ import XCTest
 
 class AsyncAwaitTests: XCTestCase {
     func test_loader_deliversEventually() {
-        let loader = LocalUsersNamesLoader()
+        let sut = makeSUT()
         let exp = expectation(description: "Waiting loader to deliver")
         
         var names: [String]?
-        loader.load {
+        sut.load {
             names = try? $0.get()
             exp.fulfill()
         }
         
         wait(for: [exp], timeout: 1.0)
         XCTAssertNotNil(names)
+    }
+}
+
+// MARK: - Private
+private extension AsyncAwaitTests {
+    func makeSUT() -> UsersNamesLoader {
+        let loader = LocalUsersNamesLoader()
+        return loader
     }
 }
