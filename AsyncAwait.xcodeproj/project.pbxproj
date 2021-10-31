@@ -11,6 +11,7 @@
 		538E015D272D309500320819 /* AsyncAwaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E015C272D309500320819 /* AsyncAwaitTests.swift */; };
 		538E0168272D311800320819 /* UsersNamesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E0167272D311800320819 /* UsersNamesLoader.swift */; };
 		538E016A272D353800320819 /* AsyncAwaitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E0169272D353800320819 /* AsyncAwaitWrapper.swift */; };
+		538E016C272E9C4200320819 /* UsersNamesLoaderComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E016B272E9C4200320819 /* UsersNamesLoaderComposer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		538E015C272D309500320819 /* AsyncAwaitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitTests.swift; sourceTree = "<group>"; };
 		538E0167272D311800320819 /* UsersNamesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersNamesLoader.swift; sourceTree = "<group>"; };
 		538E0169272D353800320819 /* AsyncAwaitWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitWrapper.swift; sourceTree = "<group>"; };
+		538E016B272E9C4200320819 /* UsersNamesLoaderComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersNamesLoaderComposer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		538E0151272D309400320819 /* AsyncAwait */ = {
 			isa = PBXGroup;
 			children = (
+				538E016B272E9C4200320819 /* UsersNamesLoaderComposer.swift */,
 				538E0167272D311800320819 /* UsersNamesLoader.swift */,
 				538E0169272D353800320819 /* AsyncAwaitWrapper.swift */,
 			);
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538E016C272E9C4200320819 /* UsersNamesLoaderComposer.swift in Sources */,
 				538E0168272D311800320819 /* UsersNamesLoader.swift in Sources */,
 				538E016A272D353800320819 /* AsyncAwaitWrapper.swift in Sources */,
 			);

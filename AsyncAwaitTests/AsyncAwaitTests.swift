@@ -48,12 +48,6 @@ class AsyncAwaitTests: XCTestCase {
     }
 }
 
-extension AsyncAwaitWrapper: UsersNamesLoader where Resource == [String], ResourceError == Error {
-    public func load(completion: @escaping (Result<[String], Error>) -> Void) {
-        loader() { completion($0) }
-    }
-}
-
 // MARK: - Private
 private extension AsyncAwaitTests {
     func makeSUT() -> UsersNamesLoader {
