@@ -22,6 +22,16 @@ class AsyncAwaitTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
         XCTAssertNotNil(names)
     }
+    
+    func test_wrapper_deliversEventually() throws {
+        let sut = AsyncAwaitWrapper(loader: makeSUT().load)
+        let exp = expectation(description: "Waiting AsyncAwaitWrapper to deliver")
+        Task.init {
+            _ = try await sut.load().get()
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+    }
 }
 
 // MARK: - Private

@@ -14,4 +14,12 @@ class AsyncAwaitWrapper<Resource, ResourceError> where ResourceError: Error {
     init(loader: @escaping ResourceLoader) {
         self.loader = loader
     }
+    
+    func load() async -> Result<Resource, ResourceError> {
+        return await withCheckedContinuation { continuation in
+            loader() { result in
+                continuation.resume(returning: result)
+            }
+        }
+    }
 }
