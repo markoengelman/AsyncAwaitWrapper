@@ -3,7 +3,7 @@
 - To read more about motivation behind it please see my article about it: https://markoengelman.com/use-swifts-async-without-breaking-the-existing-codebase/
 
 ## Code
-```
+```Swift
 class AsyncAwaitWrapper<Resource, ResourceError> where ResourceError: Error {
     typealias ResourceLoader = (_ completion: @escaping (Result<Resource, ResourceError>) -> Void) -> Void
     let loader: ResourceLoader
