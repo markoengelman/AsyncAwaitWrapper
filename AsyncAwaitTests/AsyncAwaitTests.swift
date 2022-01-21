@@ -9,20 +9,6 @@ import XCTest
 @testable import AsyncAwait
 
 class AsyncAwaitTests: XCTestCase {
-    func test_loader_deliversEventually() {
-        let (_, loader) = makeSUT()
-        let exp = expectation(description: "Waiting loader to deliver")
-        
-        var names: [String]?
-        loader.load {
-            names = try? $0.get()
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
-        XCTAssertNotNil(names)
-    }
-    
     func test_wrapper_async_load_deliversResultEventually() throws {
         let (sut, _) = makeSUT()
         let exp = expectation(description: "Waiting AsyncAwaitWrapper to deliver")
