@@ -36,4 +36,4 @@ class AsyncAwaitWrapper<Resource, ResourceError> where ResourceError: Error {
 }
 ```
 ## How to use
-- For demostrantion how to use check provided Unit Tests with usage demonstration.
+- Check provided [composer](AsyncAwaitTests/AsyncAwaitTests+HelpersWithUsageExample/UsersNamesLoaderComposer.swift) with demonstration how to use.
