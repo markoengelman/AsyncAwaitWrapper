@@ -43,6 +43,20 @@ class AsyncAwaitTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    func test_wrapper_async_load_throwsError_onLoaderError() throws {
+        let (sut, loader) = makeSUT()
+        loader.complete(with: .failure(NSError(domain: "", code: -1, userInfo: nil)))
+        let exp = expectation(description: "Waiting AsyncAwaitWrapper to throw")
+        Task.init {
+            do {
+                let _: [String] = try await sut.load()
+            } catch {
+                exp.fulfill()
+            }
+        }
+        wait(for: [exp], timeout: 1.0)
+    }
+    
     func test_wrappedLoader_deliversEventually() {
         let (sut, _) = makeSUT()
         let exp = expectation(description: "Waiting wrapped loader to deliver")
