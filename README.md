@@ -19,7 +19,21 @@ class AsyncAwaitWrapper<Resource, ResourceError> where ResourceError: Error {
             }
         }
     }
+    
+    func load() async throws -> Resource {
+        try await withCheckedThrowingContinuation { continuation in
+            loader() { result in
+                switch result {
+                case let .success(resource):
+                    continuation.resume(returning: resource)
+                    
+                case let .failure(error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+    }
 }
 ```
 ## How to use
-- For demostrantion how to use check provided Unit Tests with usage demonstration.
+- Check provided [composer](AsyncAwaitTests/AsyncAwaitTests+HelpersWithUsageExample/UsersNamesLoaderComposer.swift) with demonstration how to use.

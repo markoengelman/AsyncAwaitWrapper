@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		538E0158272D309500320819 /* AsyncAwait.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538E014F272D309400320819 /* AsyncAwait.framework */; };
 		538E015D272D309500320819 /* AsyncAwaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E015C272D309500320819 /* AsyncAwaitTests.swift */; };
-		538E0168272D311800320819 /* UsersNamesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E0167272D311800320819 /* UsersNamesLoader.swift */; };
 		538E016A272D353800320819 /* AsyncAwaitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E0169272D353800320819 /* AsyncAwaitWrapper.swift */; };
-		538E016C272E9C4200320819 /* UsersNamesLoaderComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E016B272E9C4200320819 /* UsersNamesLoaderComposer.swift */; };
-		538E016E27305F4000320819 /* LocalUsersNamesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E016D27305F4000320819 /* LocalUsersNamesLoader.swift */; };
+		53D6743D279B34B800F695A6 /* UsersNamesLoaderComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E016B272E9C4200320819 /* UsersNamesLoaderComposer.swift */; };
+		53D6743E279B34BE00F695A6 /* UsersNamesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E0167272D311800320819 /* UsersNamesLoader.swift */; };
+		53D6743F279B34C200F695A6 /* LocalUsersNamesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538E016D27305F4000320819 /* LocalUsersNamesLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +75,6 @@
 		538E0151272D309400320819 /* AsyncAwait */ = {
 			isa = PBXGroup;
 			children = (
-				538E016F27305F5A00320819 /* UsersLoader */,
 				538E0169272D353800320819 /* AsyncAwaitWrapper.swift */,
 			);
 			path = AsyncAwait;
@@ -85,18 +84,19 @@
 			isa = PBXGroup;
 			children = (
 				538E015C272D309500320819 /* AsyncAwaitTests.swift */,
+				538E016F27305F5A00320819 /* AsyncAwaitTests+HelpersWithUsageExample */,
 			);
 			path = AsyncAwaitTests;
 			sourceTree = "<group>";
 		};
-		538E016F27305F5A00320819 /* UsersLoader */ = {
+		538E016F27305F5A00320819 /* AsyncAwaitTests+HelpersWithUsageExample */ = {
 			isa = PBXGroup;
 			children = (
 				538E016B272E9C4200320819 /* UsersNamesLoaderComposer.swift */,
 				538E0167272D311800320819 /* UsersNamesLoader.swift */,
 				538E016D27305F4000320819 /* LocalUsersNamesLoader.swift */,
 			);
-			path = UsersLoader;
+			path = "AsyncAwaitTests+HelpersWithUsageExample";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,9 +208,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				538E016C272E9C4200320819 /* UsersNamesLoaderComposer.swift in Sources */,
-				538E0168272D311800320819 /* UsersNamesLoader.swift in Sources */,
-				538E016E27305F4000320819 /* LocalUsersNamesLoader.swift in Sources */,
 				538E016A272D353800320819 /* AsyncAwaitWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +216,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53D6743E279B34BE00F695A6 /* UsersNamesLoader.swift in Sources */,
+				53D6743D279B34B800F695A6 /* UsersNamesLoaderComposer.swift in Sources */,
+				53D6743F279B34C200F695A6 /* LocalUsersNamesLoader.swift in Sources */,
 				538E015D272D309500320819 /* AsyncAwaitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

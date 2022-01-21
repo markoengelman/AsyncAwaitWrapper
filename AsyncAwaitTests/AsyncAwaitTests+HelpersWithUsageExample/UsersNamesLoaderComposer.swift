@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@testable import AsyncAwait
 
 final class UsersNamesLoaderComposer {
     static func makeLoader() -> UsersNamesLoader {
