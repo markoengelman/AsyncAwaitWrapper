@@ -10,11 +10,11 @@ import XCTest
 
 class AsyncAwaitTests: XCTestCase {
     func test_loader_deliversEventually() {
-        let sut = makeSUT()
+        let (_, loader) = makeSUT()
         let exp = expectation(description: "Waiting loader to deliver")
         
         var names: [String]?
-        sut.load {
+        loader.load {
             names = try? $0.get()
             exp.fulfill()
         }
@@ -24,7 +24,7 @@ class AsyncAwaitTests: XCTestCase {
     }
     
     func test_wrapper_async_load_deliversResultEventually() throws {
-        let sut = AsyncAwaitWrapper(loader: makeSUT().load)
+        let (sut, _) = makeSUT()
         let exp = expectation(description: "Waiting AsyncAwaitWrapper to deliver")
         Task.init {
             _ = try await sut.load().get()
@@ -34,7 +34,7 @@ class AsyncAwaitTests: XCTestCase {
     }
     
     func test_wrapper_async_load_deliversResourceEventually() throws {
-        let sut = AsyncAwaitWrapper(loader: makeSUT().load)
+        let (sut, _) = makeSUT()
         let exp = expectation(description: "Waiting AsyncAwaitWrapper to deliver")
         Task.init {
             let _: [String] = try await sut.load()
@@ -44,7 +44,7 @@ class AsyncAwaitTests: XCTestCase {
     }
     
     func test_wrappedLoader_deliversEventually() {
-        let sut: UsersNamesLoader = AsyncAwaitWrapper(loader: makeSUT().load)
+        let (sut, _) = makeSUT()
         let exp = expectation(description: "Waiting wrapped loader to deliver")
         
         var names: [String]?
@@ -60,8 +60,8 @@ class AsyncAwaitTests: XCTestCase {
 
 // MARK: - Private
 private extension AsyncAwaitTests {
-    func makeSUT() -> UsersNamesLoader {
+    func makeSUT() -> (AsyncAwaitWrapper<[String], Error>, LocalUsersNamesLoader) {
         let loader = LocalUsersNamesLoader()
-        return loader
+        return (AsyncAwaitWrapper(loader: loader.load), loader)
     }
 }
