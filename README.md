@@ -19,6 +19,20 @@ class AsyncAwaitWrapper<Resource, ResourceError> where ResourceError: Error {
             }
         }
     }
+    
+    func load() async throws -> Resource {
+        try await withCheckedThrowingContinuation { continuation in
+            loader() { result in
+                switch result {
+                case let .success(resource):
+                    continuation.resume(returning: resource)
+                    
+                case let .failure(error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+    }
 }
 ```
 ## How to use
