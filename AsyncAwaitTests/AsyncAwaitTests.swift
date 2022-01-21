@@ -23,11 +23,21 @@ class AsyncAwaitTests: XCTestCase {
         XCTAssertNotNil(names)
     }
     
-    func test_wrapper_async_load_deliversEventually() throws {
+    func test_wrapper_async_load_deliversResultEventually() throws {
         let sut = AsyncAwaitWrapper(loader: makeSUT().load)
         let exp = expectation(description: "Waiting AsyncAwaitWrapper to deliver")
         Task.init {
             _ = try await sut.load().get()
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+    }
+    
+    func test_wrapper_async_load_deliversResourceEventually() throws {
+        let sut = AsyncAwaitWrapper(loader: makeSUT().load)
+        let exp = expectation(description: "Waiting AsyncAwaitWrapper to deliver")
+        Task.init {
+            let _: [String] = try await sut.load()
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)
